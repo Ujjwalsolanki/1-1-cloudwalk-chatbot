@@ -30,7 +30,7 @@ cd your-repo-name
 
 ```bash
 # Initialize uv 
-uv init
+uv sync
 ```
 
 ## 2\. Configuration
