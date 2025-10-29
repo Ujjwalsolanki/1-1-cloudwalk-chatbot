@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nimbus 1.1 Chatbot</title>
+    <link rel="stylesheet" href="/public/css/style.css">
+    <style>
+        .header-logo {
+            height: 30px; /* Sizing the external SVG image */
+            width: auto;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="title">
+                <img src="https://cdn.prod.website-files.com/6654b3697a9d140e0ca14dcc/6655198e870bf49047c7442d_cloudwalk_logotipo.svg" alt="CloudWalk Logo" style="height: 30px;"> 
+                Assistant
+            </div>
+        </div>
+
+        <div class="chat-content" id="chat-content">
+            <!-- Example AI Message (Dark Theme) -->
+            <div class="chat-message ai">
+                <div class="avatar">AI</div>
+                <div class="bubble" id="initial-message"></div>
+            </div>
+        </div>
+
+        <div class="chat-input-area">
+            <textarea id="chat-input" placeholder="Message CloudWalk Chatbot" rows="1"></textarea>
+            <button id="send-button" disabled>
+                <!-- Send icon SVG -->
+                <svg class="icon" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="/public/js/main.js">      
+    </script>
+</body>
+</html>

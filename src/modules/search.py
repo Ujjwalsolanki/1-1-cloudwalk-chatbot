@@ -15,6 +15,7 @@ from urllib.parse import urlparse
 import time
 from typing import List
 from src.schemas.search_result import SearchResult
+from logger import logger
 
 
 class DuckDuckGoRetriever:
@@ -67,15 +68,19 @@ class DuckDuckGoRetriever:
         Returns:
             List of SearchResult objects with title, snippet, url, domain, and extracted content.
         """
+        logger.info('Searching the web...')
         results: List[SearchResult] = []
 
-        if 'cloudwalk' in query.lower():
+        if 'cloudwalk' in query.lower() or 'cloud walk' in query.lower():
             query = "site:cloudwalk.io " + query
-       
+            logger.info('cloudwalk detected in user message')
+
         with DDGS() as ddgs:
             try:
                 ddg_results = list(ddgs.text(query, max_results=max_results))
-            except Exception:
+                logger.info('search results are found')
+            except Exception as e:
+                logger.exception(e)
                 return results  # return empty on failure
 
         for r in ddg_results:

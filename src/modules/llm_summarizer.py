@@ -56,8 +56,18 @@ class LLMSummarizer:
 
     async def summarize_sources(self, sources: List[SearchResult], question: str) -> str:
         """
-        Generates a synthesized answer using RAG from provided sources.
+        Generate a concise answer to a question using only the provided search results and include source links
+
+        :param self: The LLMSummarizer instance
+        :param sources: List of search results to use for answering the question
+        :type sources: List[SearchResult]
+        :param question: The user's question to be answered
+        :type question: str
+        :return: Concise answer generated from the sources with referenced links
+        :rtype: str
         """
+
+        logger.info('initialized summarizations of web results')
         # 1. Prepare Context String
         parts = []
         for i, s in enumerate(sources, start=1):
@@ -104,9 +114,14 @@ class LLMSummarizer:
 
     async def generate_answer(self, question: str) -> str:
         """
-        Public function that accepts user's question and a list of source snippets.
+        Asynchronously generate a concise answer to a question using retrieved web sources
+
+        :param self: The LLMSummarizer instance
+        :param question: The user's question to be answered
+        :type question: str
+        :return: Concise answer generated from relevant web sources
+        :rtype: str
         """
-        # Simple heuristic: keep top 5 sources
-        # sources = source_snippets[:5]
+        logger.info("Generate answer method called")
         sources = await self.retriever.search(question)
         return await self.summarize_sources(sources, question)

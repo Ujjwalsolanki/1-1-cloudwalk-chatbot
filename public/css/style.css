@@ -1,0 +1,190 @@
+/* --- DARK THEME VARIABLES --- */
+:root {
+    --gemini-bg-color: #17181c; /* Very dark background */
+    --gemini-container-bg: #202124; /* Chat container and header */
+    --gemini-text-color: #e8eaed; /* Light gray text */
+    --gemini-input-bg: #2e2f33; /* Input area background */
+    --gemini-border-color: #3e4042; /* Darker borders */
+    --gemini-primary-color: #8ab4f8; /* Light blue accent for links/active states */
+    --gemini-button-bg: #558df5; /* Punchy blue for the send button */
+    --gemini-chat-bubble-bg: #323537; /* Darker AI response bubble */
+    --gemini-user-bubble-bg: #2e3549; /* Darker, slightly blue user input bubble */
+}
+
+body {
+    font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--gemini-bg-color);
+    color: var(--gemini-text-color);
+    overflow: hidden; 
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 900px;
+    height: 100vh;
+    background-color: var(--gemini-container-bg); /* Dark container background */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Darker shadow */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.chat-header {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--gemini-border-color);
+    font-size: 1.2em;
+    font-weight: 500;
+    color: var(--gemini-text-color);
+    background-color: var(--gemini-container-bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chat-header .title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chat-header .title img {
+    height: 30px;
+    /* Logo is assumed white, looks great on dark background */
+}
+
+.chat-content {
+    flex-grow: 1;
+    padding: 20px 24px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: var(--gemini-bg-color); /* Main chat background */
+    scroll-behavior: smooth;
+}
+
+.chat-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.chat-message.user {
+    justify-content: flex-end;
+}
+
+.chat-message.ai {
+    justify-content: flex-start;
+}
+
+.chat-message .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--gemini-input-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    color: var(--gemini-text-color);
+    flex-shrink: 0;
+}
+
+.chat-message.user .avatar {
+    order: 2;
+    background-color: var(--gemini-user-bubble-bg);
+}
+
+.chat-message.ai .avatar {
+    background-color: var(--gemini-chat-bubble-bg);
+}
+
+.chat-message .bubble {
+    max-width: 70%;
+    padding: 12px 18px;
+    border-radius: 20px;
+    line-height: 1.5;
+    word-wrap: break-word;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow for depth */
+    color: var(--gemini-text-color);
+}
+
+.chat-message.user .bubble {
+    background-color: var(--gemini-user-bubble-bg);
+    border-bottom-right-radius: 4px;
+}
+
+.chat-message.ai .bubble {
+    background-color: var(--gemini-chat-bubble-bg);
+    border-bottom-left-radius: 4px;
+}
+
+.chat-input-area {
+    padding: 16px 24px;
+    border-top: 1px solid var(--gemini-border-color);
+    background-color: var(--gemini-container-bg);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-sizing: border-box;
+}
+
+.chat-input-area textarea {
+    flex-grow: 1;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 24px;
+    background-color: var(--gemini-input-bg);
+    font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
+    font-size: 1em;
+    resize: none;
+    outline: none;
+    max-height: 150px;
+    overflow-y: auto;
+    color: var(--gemini-text-color);
+}
+
+.chat-input-area textarea::placeholder {
+    color: #7f8286;
+}
+
+/* --- ADJUSTED SEND BUTTON STYLES --- */
+.chat-input-area button {
+    background-color: var(--gemini-button-bg); /* Punchy blue */
+    color: #ffffff; /* White icon */
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.5em;
+    transition: background-color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.chat-input-area button:hover {
+    background-color: #4a74d7; /* Slightly darker blue on hover */
+}
+
+.chat-input-area button:disabled {
+    background-color: #3e4042; /* Dark gray disabled state */
+    color: #7f8286; /* Lighter gray icon */
+    cursor: not-allowed;
+}
+
+/* Basic SVG icons for demonstration */
+.icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
