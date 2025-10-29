@@ -3,6 +3,9 @@
 This project implements a Retrieval-Augmented Generation (RAG) chatbot using the FastAPI framework. 
 The chatbot is designed to provide information about CloudWalk, its products (like InfinitePay), mission, and brand values by leveraging external data sources.
 
+### Message 1
+![Message 1](assets/message1.png)
+
 ## Prerequisites
 
 Ensure you have the following installed on your system:
