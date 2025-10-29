@@ -6,6 +6,15 @@ The chatbot is designed to provide information about CloudWalk, its products (li
 ### Message 1
 ![Message 1](assets/message1.png)
 
+### Message 2
+![Message 2](assets/message2.png)
+
+### Message 3
+![Message 3](assets/message3.png)
+
+### Message 4
+![Message 4](assets/message4.png)
+
 ## Prerequisites
 
 Ensure you have the following installed on your system:
